@@ -3,7 +3,7 @@ def match(command):
 
 
 def get_new_command(command):
-    return 'pytest'
+    return 'py.test'
 
 
 # make it come before the python_command rule
