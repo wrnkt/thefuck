@@ -8,6 +8,12 @@ from six import text_type
 from . import const
 from .system import Path
 
+def load_source(name, path):
+    spec = importlib.util.spec_from_file_location(name, path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    sys.modules[name] = module
+    return module
 
 class Settings(dict):
     def __getattr__(self, item):
